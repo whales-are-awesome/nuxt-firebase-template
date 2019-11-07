@@ -1,0 +1,53 @@
+{
+  "name": "nuxt-firebase-template",
+  "version": "1.0.0",
+  "description": "nuxt + firebase template",
+  "author": "Nikita Suponov <suponov.nickita@gmail.com>",
+  "private": true,
+  "scripts": {
+    "dev": "gulp dev & nuxt",
+    "build": "nuxt build & gulp prod --production",
+    "start": "nuxt start",
+    "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
+    "precommit": "npm run lint"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.22",
+    "@fortawesome/free-brands-svg-icons": "^5.10.2",
+    "@fortawesome/free-regular-svg-icons": "^5.10.2",
+    "@fortawesome/free-solid-svg-icons": "^5.10.2",
+    "@fortawesome/vue-fontawesome": "^0.1.7",
+    "firebase": "^6.6.0",
+    "normalize.css": "^8.0.1",
+    "nuxt": "^2.10.1",
+    "reset.css": "^2.0.2"
+  },
+  "devDependencies": {
+    "@nuxtjs/router": "^1.5.0",
+    "@nuxtjs/style-resources": "^1.0.0",
+    "babel-eslint": "^10.0.3",
+    "core-js": "^2.6.10",
+    "eslint": "^6.3.0",
+    "eslint-friendly-formatter": "^4.0.1",
+    "eslint-loader": "^3.0.0",
+    "eslint-plugin-vue": "^5.2.3",
+    "gulp": "^4.0.2",
+    "gulp-clean": "^0.4.0",
+    "gulp-debug": "^4.0.0",
+    "gulp-favicons": "^2.3.1",
+    "gulp-if": "^3.0.0",
+    "gulp-imagemin": "^6.1.0",
+    "gulp-replace-name": "^1.0.1",
+    "gulp-webp": "^4.0.1",
+    "imagemin-giflossy": "^5.1.10",
+    "imagemin-mozjpeg": "^8.0.0",
+    "imagemin-pngquant": "^8.0.0",
+    "imagemin-webp": "^5.1.0",
+    "imagemin-webp-webpack-plugin": "^3.2.1",
+    "imagemin-zopfli": "^6.0.0",
+    "smart-grid": "^2.1.2",
+    "stylus": "^0.54.7",
+    "stylus-loader": "^3.0.2",
+    "yargs": "^14.0.0"
+  }
+}

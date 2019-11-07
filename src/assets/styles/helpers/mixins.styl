@@ -1,0 +1,20 @@
+underline($size = 1px, $color = currentColor)
+	&:after
+		width: 100%
+		height: $size
+
+		position: absolute
+		bottom: -.2em
+		left: 0
+
+		background-color $color
+		content ''
+		transition .3s
+
+hover-underline($size = 1px, $color = currentColor)
+	transition .3s
+	underline($size, $color)
+	&:after
+		transform scale(0)
+	&:hover:after
+		transform scale(1)
