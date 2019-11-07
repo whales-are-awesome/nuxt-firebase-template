@@ -11,6 +11,6 @@ npm-debug.log
 # Nuxt generate
 dist
 
-static-dev/
+static/
 public/
 .idea/
