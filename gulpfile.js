@@ -46,7 +46,7 @@ const webpimages = () => gulp.src(paths.images.src)
 .pipe(replaceName(/(jpe?g|png)$/, 'webp'))
 .pipe(webp(gulpif(production, imageminWebp({
 	lossless: true,
-	quality: 90,
+	quality: [0.85, 0.9],
 	alphaQuality: 90
 }))))
 .pipe(gulp.dest(paths.images.build))
@@ -63,14 +63,14 @@ const images = () => gulp.src(paths.images.src)
 	}),
 	imageminPngquant({
 		speed: 5,
-		quality: 75
+		quality: [0.7, 0.75]
 	}),
 	imageminZopfli({
 		more: true
 	}),
 	imageminMozjpeg({
 		progressive: true,
-		quality: 70
+		quality: [0.65, 0.7]
 	}),
 	imagemin.svgo({
 		plugins: [
