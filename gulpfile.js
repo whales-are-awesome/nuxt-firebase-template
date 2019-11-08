@@ -26,6 +26,17 @@ const argv = yargs.argv,
 			build: './src/static/img/',
 			watch: './src/static-dev/img/**/*.{jpg,jpeg,png,gif,svg}'
 		},
+		static: {
+			src: [
+				'./src/static-dev/**',
+				'!./src/static-dev/img/**'
+			],
+			build: './src/static/',
+			watch: [
+				'./src/static-dev/**',
+				'!./src/static-dev/img/**'
+			]
+		},
 		favicons: {
 			src: './src/static-dev/img/favicon.{jpg,jpeg,png,gif,ico}',
 			build: './src/static/img/favicons/'
@@ -34,6 +45,7 @@ const argv = yargs.argv,
 
 const server = () => {
 	gulp.watch(paths.images.watch, images);
+	gulp.watch(paths.static.watch, staticDev);
 };
 
 const cleanFiles = () => gulp.src('./src/static/*', {read: false})
@@ -50,6 +62,12 @@ const webpimages = () => gulp.src(paths.images.src)
 	alphaQuality: 90
 }))))
 .pipe(gulp.dest(paths.images.build))
+.pipe(debug({
+	'title': 'WebP images'
+}));
+
+const staticDev = () => gulp.src(paths.static.src)
+.pipe(gulp.dest(paths.static.build))
 .pipe(debug({
 	'title': 'WebP images'
 }));
@@ -113,10 +131,10 @@ const favs = () => gulp.src(paths.favicons.src)
 
 
 const dev = gulp.series(
-	gulp.series(cleanFiles, images, server),
+	gulp.series(cleanFiles, images, staticDev, server)
 );
 
-const prod = gulp.series(cleanFiles, favs, images);
+const prod = gulp.series(cleanFiles, favs, images, staticDev);
 
 module.exports = {
 	prod, dev
